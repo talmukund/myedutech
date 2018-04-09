@@ -191,6 +191,8 @@
     "electron-debug": "^1.5.0",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
+    "material-ui": "^0.20.0",
+    "mongoose": "^5.0.13",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
     "react": "^16.2.0",

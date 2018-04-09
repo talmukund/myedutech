@@ -8,7 +8,8 @@ import { dependencies as externals } from './app/package.json';
 
 export default {
   externals: [Object.keys(externals || {}),{
-    sequelize: 'commonjs sequelize'
+    sequelize: 'commonjs sequelize',
+    mongoose: 'commonjs mongoose'
   }],
 
   module: {

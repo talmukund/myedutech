@@ -9,11 +9,9 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
-import RaisedButton from 'material-ui/RaisedButton';
-import { createTable } from '../database/mysqlmodel'
 import { createmongo } from '../database/mongoschema'
 
-export default class Counter extends Component {
+export default class AdminPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,9 +20,8 @@ export default class Counter extends Component {
   }
 
   async componentWillMount() {
-    const result = await createTable();
-    this.setState({ table: result })
     createmongo();
+    
   }
 
   render() {
@@ -48,7 +45,6 @@ export default class Counter extends Component {
             })}
           </TableBody>
         </Table>
-        <RaisedButton label="Move to course" primary={true} />
       </div>
     );
   }

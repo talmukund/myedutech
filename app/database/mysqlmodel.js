@@ -18,19 +18,17 @@ sequelize.authenticate().then(function (err) {
 });
 
 //Create Item Table Structure
-var Item = sequelize.define('Item', {    
-    name:Sequelize.STRING,
+var Item = sequelize.define('Item', {
+    name: Sequelize.STRING,
     description: Sequelize.STRING,
     qty: Sequelize.DATE
 });
 
-export function createTable(){
-    //Applying Item Table to database
-sequelize.sync({force:true}).then(function (err) {
-    if(err){
-        console.log('An error occur while creating table');
-    }else{
-        console.log('Item table created successfully');
-    }
-});
+export function createTable() {
+    return new Promise((resolve, reject) => {
+        Item.findAll().then(result => {
+            // console.log(result);
+            resolve(result);
+        })
+    })
 }
