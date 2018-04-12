@@ -45,7 +45,7 @@ export default class Counter extends Component {
             })}
           </TableBody>
         </Table>
-        <Link to="/admin">Move to coourse</Link>
+        <Link to="/admin">Move to Course</Link>
       </div>
     );
   }
