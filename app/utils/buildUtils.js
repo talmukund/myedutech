@@ -1,22 +1,16 @@
-import { spawn } from 'child_process';
+import { exec } from 'child_process';
+export function createBuild() {
+    const ls = exec('npm run package-win --cwd "c:\\users\\mkary\\edu-tech-desktop" --prefix "c:\\users\\mkary\\edu-tech-desktop"')
 
-export function createBuild(){
-    const arg =[];
-    arg.push('run');
-    arg.push('package');
-    arg.push('-win');
+    ls.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+    });
 
-    const ls = spawn('npm.cmd', arg);
+    ls.stderr.on('data', (data) => {
+        console.log(`stderr: ${data}`);
+    });
 
-ls.stdout.on('data', (data) => {
-  console.log(`stdout: ${data}`);
-});
-
-ls.stderr.on('data', (data) => {
-  console.log(`stderr: ${data}`);
-});
-
-ls.on('close', (code) => {
-  console.log(`child process exited with code ${code}`);
-});
+    ls.on('close', (code) => {
+        console.log(`child process exited with code ${code}`);
+    });
 }
